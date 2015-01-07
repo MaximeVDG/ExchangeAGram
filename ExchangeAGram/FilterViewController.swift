@@ -16,6 +16,10 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     let kIntensity = 0.7
     
+    var context:CIContext = CIContext(options: nil)
+    
+    var filters:[CIFilter] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,6 +35,8 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         collectionView.registerClass(FilterCell.self, forCellWithReuseIdentifier: "MyCell")
         
         self.view.addSubview(collectionView)
+        
+        filters = photoFilters()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,13 +48,24 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     //UICollectionViewDataSource
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return filters.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell: FilterCell = collectionView.dequeueReusableCellWithReuseIdentifier("MyCell", forIndexPath: indexPath) as FilterCell
+        
         cell.imageView.image = UIImage(named: "Placeholder")
+        
+        let filterQueue:dispatch_queue_t = dispatch_queue_create("filter queue", nil)
+        
+        dispatch_async(filterQueue, { () -> Void in
+            let filterImage = self.filteredImageFromImage(self.thisFeedItem.thumbnail, filter: self.filters[indexPath.row])
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                cell.imageView.image = filterImage
+            })
+        })
         
         return cell
     }
@@ -86,7 +103,19 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         return [blur, instant, noir, transfer, unsharpen, monochrome, colorControls, sepia, colorClamp, composite, vignette]
     }
     
-    
+    func filteredImageFromImage (imageData: NSData, filter: CIFilter) -> UIImage {
+        
+        let unfilteredImage = CIImage(data: imageData)
+        filter.setValue(unfilteredImage, forKey: kCIInputImageKey)
+        let filteredImage:CIImage = filter.outputImage
+        
+        let extent = filteredImage.extent()
+        let cgImage:CGImageRef = context.createCGImage(filteredImage, fromRect: extent)
+        
+        let finalImage = UIImage(CGImage: cgImage)
+        
+        return finalImage!
+    }
     
     
     
