@@ -22,10 +22,15 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
 
         // Do any additional setup after loading the view.
         
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         let request = NSFetchRequest(entityName: "FeedItem")
         let appDelegate:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         let context:NSManagedObjectContext = appDelegate.managedObjectContext!
         feedArray = context.executeFetchRequest(request, error: nil)!
+        collectionView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,7 +67,6 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
             alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alertController, animated: true, completion: nil)
         }
-        
     }
     
     //UIImagePickerControllerDelegate
@@ -87,7 +91,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.dismissViewControllerAnimated(true, completion: nil)
         
         self.collectionView.reloadData()
-    }
+        }
     
     
     //UICollectionViewDataSource
@@ -112,14 +116,16 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     //UICollectionViewDelegate
     
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let thisItem = feedArray[indexPath.row] as FeedItem
         
         var filterVC = FilterViewController()
         filterVC.thisFeedItem = thisItem
         
-        self.navigationController?.pushViewController(filterVC, animated: false)
         
-    }
+        
+        self.navigationController?.pushViewController(filterVC, animated: false)
+        }
 
 }

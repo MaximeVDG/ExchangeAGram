@@ -16,6 +16,7 @@
 		5008939F1A47E562007A55AD /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008939E1A47E562007A55AD /* FeedViewController.swift */; };
 		500893A11A481AE9007A55AD /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500893A01A481AE9007A55AD /* FeedCell.swift */; };
 		500893A31A481C46007A55AD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 500893A21A481C46007A55AD /* MobileCoreServices.framework */; };
+		503F76731A6F6F5400BC71D1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503F76721A6F6F5400BC71D1 /* ProfileViewController.swift */; };
 		505F16741A5B81F700E27963 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505F16731A5B81F700E27963 /* FilterViewController.swift */; };
 		505F16761A5B90C900E27963 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505F16751A5B90C900E27963 /* FilterCell.swift */; };
 		505F16781A5D250C00E27963 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505F16771A5D250C00E27963 /* FeedItem.swift */; };
@@ -45,6 +46,7 @@
 		5008939E1A47E562007A55AD /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		500893A01A481AE9007A55AD /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		500893A21A481C46007A55AD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		503F76721A6F6F5400BC71D1 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		505F16731A5B81F700E27963 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		505F16751A5B90C900E27963 /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		505F16771A5D250C00E27963 /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedItem.swift; path = ../FeedItem.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				500893A01A481AE9007A55AD /* FeedCell.swift */,
 				505F16751A5B90C900E27963 /* FilterCell.swift */,
 				500893821A47E3CF007A55AD /* Main.storyboard */,
+				503F76721A6F6F5400BC71D1 /* ProfileViewController.swift */,
 				500893851A47E3CF007A55AD /* Images.xcassets */,
 				500893871A47E3CF007A55AD /* LaunchScreen.xib */,
 				505F16791A5D255C00E27963 /* Model */,
@@ -245,6 +248,7 @@
 				500893A11A481AE9007A55AD /* FeedCell.swift in Sources */,
 				5008939F1A47E562007A55AD /* FeedViewController.swift in Sources */,
 				505F16781A5D250C00E27963 /* FeedItem.swift in Sources */,
+				503F76731A6F6F5400BC71D1 /* ProfileViewController.swift in Sources */,
 				5008937F1A47E3CF007A55AD /* ExchangeAGram.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
