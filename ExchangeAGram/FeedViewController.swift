@@ -9,19 +9,27 @@
 import UIKit
 import MobileCoreServices
 import CoreData
+import MapKit
 
-class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
 
     var feedArray:[AnyObject] = []
     
+    var locationManager: CLLocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
         
+        locationManager.distanceFilter = 100.0
+        locationManager.startUpdatingLocation()
         
     }
     
@@ -91,6 +99,13 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         feedItem.image = imageData
         feedItem.caption = "test caption"
         feedItem.thumbnail = thumbNailData
+        feedItem.latitude = locationManager.location.coordinate.latitude
+        feedItem.longitude = locationManager.location.coordinate.longitude
+        
+        let UUID = NSUUID().UUIDString
+        feedItem.uniqueID = UUID
+        
+        feedItem.filtered = false
         
         (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
         
@@ -116,7 +131,14 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         var cell:FeedCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as FeedCell
         let thisItem = feedArray[indexPath.row] as FeedItem
         
-        cell.imageView.image = UIImage(data: thisItem.image)
+        if thisItem.filtered == true {
+            let returnedImage = UIImage(data: thisItem.image)!
+            let image = UIImage(CGImage: returnedImage.CGImage, scale: 1.0, orientation: UIImageOrientation.Right)
+        } else {
+            cell.imageView.image = UIImage(data: thisItem.image)
+
+        }
+        
         cell.captionLabel.text = thisItem.caption
         
         return cell
@@ -135,5 +157,11 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         self.navigationController?.pushViewController(filterVC, animated: false)
         }
+    
+    // CLLocationManagerDelegate
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        println("locations = \(locations)")
+    }
 
 }

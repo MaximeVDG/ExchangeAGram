@@ -16,11 +16,13 @@
 		5008939F1A47E562007A55AD /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008939E1A47E562007A55AD /* FeedViewController.swift */; };
 		500893A11A481AE9007A55AD /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500893A01A481AE9007A55AD /* FeedCell.swift */; };
 		500893A31A481C46007A55AD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 500893A21A481C46007A55AD /* MobileCoreServices.framework */; };
+		5031BACD1A7109F70024322C /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5031BACC1A7109F70024322C /* FeedItem.swift */; };
 		503F76731A6F6F5400BC71D1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503F76721A6F6F5400BC71D1 /* ProfileViewController.swift */; };
 		503F76751A709E6200BC71D1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503F76741A709E6200BC71D1 /* FacebookSDK.framework */; };
 		505F16741A5B81F700E27963 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505F16731A5B81F700E27963 /* FilterViewController.swift */; };
 		505F16761A5B90C900E27963 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505F16751A5B90C900E27963 /* FilterCell.swift */; };
-		505F16781A5D250C00E27963 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505F16771A5D250C00E27963 /* FeedItem.swift */; };
+		50B055771A70E986002D7B88 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B055761A70E986002D7B88 /* MapViewController.swift */; };
+		50B055791A70EBA7002D7B88 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B055781A70EBA7002D7B88 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,12 +49,14 @@
 		5008939E1A47E562007A55AD /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		500893A01A481AE9007A55AD /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		500893A21A481C46007A55AD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		5031BACC1A7109F70024322C /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedItem.swift; path = ../FeedItem.swift; sourceTree = "<group>"; };
 		503F76721A6F6F5400BC71D1 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		503F76741A709E6200BC71D1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		503F76761A709FC500BC71D1 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		505F16731A5B81F700E27963 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		505F16751A5B90C900E27963 /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
-		505F16771A5D250C00E27963 /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedItem.swift; path = ../FeedItem.swift; sourceTree = "<group>"; };
+		50B055761A70E986002D7B88 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		50B055781A70EBA7002D7B88 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50B055791A70EBA7002D7B88 /* MapKit.framework in Frameworks */,
 				500893A31A481C46007A55AD /* MobileCoreServices.framework in Frameworks */,
 				503F76751A709E6200BC71D1 /* FacebookSDK.framework in Frameworks */,
 			);
@@ -99,6 +104,7 @@
 				5008937B1A47E3CF007A55AD /* AppDelegate.swift */,
 				5008939E1A47E562007A55AD /* FeedViewController.swift */,
 				505F16731A5B81F700E27963 /* FilterViewController.swift */,
+				50B055761A70E986002D7B88 /* MapViewController.swift */,
 				503F76721A6F6F5400BC71D1 /* ProfileViewController.swift */,
 				500893A01A481AE9007A55AD /* FeedCell.swift */,
 				505F16751A5B90C900E27963 /* FilterCell.swift */,
@@ -115,6 +121,7 @@
 		500893791A47E3CF007A55AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				50B055781A70EBA7002D7B88 /* MapKit.framework */,
 				503F76741A709E6200BC71D1 /* FacebookSDK.framework */,
 				500893A21A481C46007A55AD /* MobileCoreServices.framework */,
 				5008937A1A47E3CF007A55AD /* Info.plist */,
@@ -143,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				5008937D1A47E3CF007A55AD /* ExchangeAGram.xcdatamodeld */,
-				505F16771A5D250C00E27963 /* FeedItem.swift */,
+				5031BACC1A7109F70024322C /* FeedItem.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -252,8 +259,9 @@
 				505F16741A5B81F700E27963 /* FilterViewController.swift in Sources */,
 				5008937C1A47E3CF007A55AD /* AppDelegate.swift in Sources */,
 				500893A11A481AE9007A55AD /* FeedCell.swift in Sources */,
+				50B055771A70E986002D7B88 /* MapViewController.swift in Sources */,
+				5031BACD1A7109F70024322C /* FeedItem.swift in Sources */,
 				5008939F1A47E562007A55AD /* FeedViewController.swift in Sources */,
-				505F16781A5D250C00E27963 /* FeedItem.swift in Sources */,
 				503F76731A6F6F5400BC71D1 /* ProfileViewController.swift in Sources */,
 				5008937F1A47E3CF007A55AD /* ExchangeAGram.xcdatamodeld in Sources */,
 			);
